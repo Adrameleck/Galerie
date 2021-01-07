@@ -1,15 +1,43 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Pouet</title>
-    <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-    <section id="images">
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galerie</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+	<link rel="apple-touch-icon" href="/icon-192x192.png">
+    <script
+      async
+      src="https://cdn.jsdelivr.net/npm/pwacompat@2.0.9/pwacompat.min.js"
+      integrity="sha384-VcI6S+HIsE80FVM1jgbd6WDFhzKYA0PecD/LcIyMQpT4fMJdijBh0I7Iblaacawc"
+      crossorigin="anonymous"
+    ></script>
 
-    </section>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.css"
+      rel="stylesheet"
+    />
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then((reg) => {
+            console.log("votre service worker a été enregistré!");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        console.warn("Service workers are not supported.");
+      }
+    </script>
 
-    <script type="application/javascript" src="script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+	<div id="button" class="button">
+      Installer
+    </div>
+    <h1 class="title">Galerie</h1>
+    <div class="container"></div>
+  </body>
 </html>
